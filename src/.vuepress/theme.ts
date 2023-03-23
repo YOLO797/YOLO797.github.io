@@ -12,11 +12,11 @@ export default hopeTheme({
 
   iconAssets: "//at.alicdn.com/t/c/font_3654399_3ntst5bj8ws.css",
 
-  logo: "avatar.jpg",
+  logo: "/logo.svg",
 
   repo: "yolo797",
 
-  docsDir: "demo/src",
+  docsDir: "src",
 
   // navbar
   navbar: zhNavbar,

@@ -9,8 +9,8 @@ export default defineUserConfig({
   base: "/",
 
   lang: "zh-CN",
-  title: "Qianyun",
-  description: "Qianyun's Blog",
+  title: "YOLO",
+  description: "YOLO's Blog",
 
   head: [
     [
