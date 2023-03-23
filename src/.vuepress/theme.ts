@@ -84,17 +84,17 @@ export default hopeTheme({
   },
 
   plugins: {
-    blog: {
-      // autoExcerpt: true,
-      article: "/article/",                 // 文章列表
-      category: "/category/",               // 分类地图页
-      categoryItem: "/category/:name/",     // 特定分类列表
-      tag: "/tag/",                         // 标签地图页
-      tagItem: "/tag/:name/",               // 特定标签列表
-      // encrypted: "/encrypted/",             // 加密文章列表	
-      // slide: "/slide/",                     // 幻灯片列表
-      star: "/star/",                       // 星标文章列表	
-      timeline: "/timeline/",               // 时间线列表	
+    blog: true,
+    //git插件 页面提示git提交人账号信息
+    git:false,
+    //评论插件开启
+    comment: {
+      // @ ts-expect-error: You should generate and use your own comment service
+      provider: "Giscus",
+      repo:"forget-the-bright/giscus_for_pages",
+      repoId:"R_kgDOJM4y4g",
+      category:"Q&A",
+      categoryId:"DIC_kwDOJM4y4s4CVDnf",
     },
     copyCode: {},
 

@@ -1,36 +1,36 @@
 ---
 # This is the title of the article
-title: Page Config
+title: Vue3
 # This is the icon of the page
 icon: page
 # This control sidebar order
 order: 1
 # Set author
-author: Ms.Hope
+# author: Ms.Hope
 # Set writing time
 date: 2020-01-01
 # A page can have multiple categories
 category:
-  - Guide
+  - 前端
 # A page can have multiple tags
 tag:
-  - Page config
-  - Guide
+  - 前端
+  - Vue
 # this page is sticky in article list
 sticky: true
 # this page will appear in starred articles
 star: true
 # You can customize footer content
-footer: Footer content for test
+# footer: Footer content for test
 # You can customize copyright content
-copyright: No Copyright
+# copyright: No Copyright
 ---
 
-Content before `more` comment is regarded as page excerpt.
+博客第一个demo
 
 <!-- more -->
 
-## Page Information
+## Vue 3 的xxx功能
 
 You can set page information in Markdown’s Frontmatter.
 
