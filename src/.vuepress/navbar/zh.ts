@@ -1,30 +1,53 @@
-import { navbar } from "vuepress-theme-hope";
+import { navbar } from "vuepress-theme-hope"
 
 export const zhNavbar = navbar([
-  "/zh/",
-  { text: "案例", icon: "discover", link: "/zh/demo/" },
+  "/",
   {
-    text: "指南",
-    icon: "creative",
-    prefix: "/zh/guide/",
+    text: '前端',
+    prefix: "/前端/",
     children: [
       {
-        text: "Bar",
-        icon: "creative",
-        prefix: "bar/",
-        children: ["baz", { text: "...", icon: "more", link: "" }],
+        text: '基础',
+        children: [
+          // { text: 'HTML', link: '' },
+          // { text: 'CSS', link: '' },
+          { text: 'JavaScript', link: 'javascript/深入/原型和原型链' }
+        ]
       },
       {
-        text: "Foo",
-        icon: "config",
-        prefix: "foo/",
-        children: ["ray", { text: "...", icon: "more", link: "" }],
+        text: '进阶',
+        children: [
+          // { text: 'ECMAScript 6+', link: '' },
+          { text: 'TypeScript', link: 'typescript/基础/ts' },
+          { text: '网络相关', link: 'network/http' }
+        ]
       },
-    ],
+      {
+        text: '手写',
+        children: [
+          { text: 'JS 手写', link: '手写/防抖节流' }
+        ]
+      }
+    ]
   },
   {
-    text: "V2 文档",
-    icon: "note",
-    link: "https://theme-hope.vuejs.press/zh/",
+    text: '工程化',
+    prefix: "/工程化/",
+    children: [
+      {
+        text: '框架',
+        children: [
+          { text: 'Vue.js', link: 'vue/vue3' },
+          // { text: 'React', link: '' },
+        ]
+      },
+      // {
+      //   text: '工具',
+      //   children: [
+      //     { text: 'Webpack', link: '' },
+      //     { text: 'Vite', link: '' }
+      //   ]
+      // }
+    ]
   },
-]);
+])

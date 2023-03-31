@@ -22,6 +22,13 @@ export default defineUserConfig({
     ],
   ],
 
+  markdown:{
+    //markdown 侧边栏标题导航提取 h1 ~ h4
+    headers:{
+      level: [1,2,3,4,5],
+    },
+  },
+
   theme,
   
   //是否开启页面预拉取，如果服务器宽带足够，可改为 true，会提升其他页面加载速度
