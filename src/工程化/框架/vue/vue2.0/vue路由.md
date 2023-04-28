@@ -337,7 +337,7 @@ beforeRouterLeave(to, from, next){
 
 #### 9.3 区别
 
-![vue-router](../../img/vue-router.png)
+![vue-router](../../../img/vue-router.png)
 
 ### 10. 路由生命周期
 
