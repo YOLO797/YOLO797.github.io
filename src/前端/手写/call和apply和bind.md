@@ -187,7 +187,7 @@ Function.prototype.myBind = function(context){
   var that = this
   var args = Array.prototype.slice.call(arguments,1)
   function fBind(){
-    var bindArgs = Array.prototype.call(arguments)
+    var bindArgs = Array.prototype.slice.call(arguments)
     // 当作为构造函数时，this 指向实例，此时结果为 true,将绑定函数的this作为实例
     // 当作为普通函数时，this 指向window，此时结果为 false，将绑定函数的this指向context
     return that.apply(this instanceof fBind ? this : context,args.concat(bindArgs))

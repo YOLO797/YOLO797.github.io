@@ -11,7 +11,8 @@ export const zhNavbar = navbar([
         children: [
           // { text: 'HTML', link: '' },
           // { text: 'CSS', link: '' },
-          { text: 'JavaScript', link: 'javascript/深入/原型和原型链' }
+          { text: 'JavaScript', link: 'javascript/深入/原型和原型链' },
+          { text: 'ES6', link: 'es6/defer和async' }
         ]
       },
       {
@@ -27,7 +28,29 @@ export const zhNavbar = navbar([
         children: [
           { text: 'JS 手写', link: '手写/防抖节流' }
         ]
-      }
+      },
+    ]
+  },
+  {
+    text: '面试题',
+    prefix: "/面试题/",
+    children: [
+      {
+        text: 'JS',
+        link: 'js'
+      },
+      {
+        text: 'ES6',
+        link: 'es6'
+      },
+      {
+        text: 'Vue',
+        link: 'Vue/Vue'
+      },
+      {
+        text: '网络',
+        link: '网络/HTTP'
+      },
     ]
   },
   {
@@ -37,7 +60,7 @@ export const zhNavbar = navbar([
       {
         text: '框架',
         children: [
-          { text: 'Vue.js', link: 'vue/vue3' },
+          { text: 'Vue.js', link: '框架/vue/vue2.0/MVVM' },
           // { text: 'React', link: '' },
         ]
       },
