@@ -55,6 +55,23 @@ export const zhSidebar = sidebar({
       ],
     },
   ],
+  "/前端/network/": [
+    {
+      text: "",
+      icon: "discover",
+      children: [
+        {
+          text: "网络相关",
+          icon: "discover",
+          collapsible: true,
+          children: [
+            "http",
+            "websocket",
+          ],
+        },
+      ],
+    },
+  ],
   "/前端/手写/": [
     {
       text: "",

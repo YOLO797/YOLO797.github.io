@@ -25,7 +25,7 @@ export default defineUserConfig({
   markdown:{
     //markdown 侧边栏标题导航提取 h1 ~ h4
     headers:{
-      level: [1,2,3,4,5],
+      level: [1,2,3,4],
     },
   },
 

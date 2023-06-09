@@ -193,7 +193,7 @@ Function.prototype.myBind = function(context){
     return that.apply(this instanceof fBind ? this : context,args.concat(bindArgs))
   }
   // 修改返回函数的prototype 为绑定函数的 prototype ，实例就可以继承绑定函数的原型中的值
-  // 如果直接这样写fBound.prototype = this.prototype，修改fBind.prorotype 时，也会直接修改绑定函数的 prorotype，所以需要用到一个空函数Fn来进行中转
+  // 如果直接这样写fBind.prototype = this.prototype，修改fBind.prorotype 时，也会直接修改绑定函数的 prorotype，所以需要用到一个空函数Fn来进行中转
   var Fn = function(){}
   Fn.prorotype = this.prototype
   fBind.prorotype = new Fn()

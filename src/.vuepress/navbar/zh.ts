@@ -29,6 +29,14 @@ export const zhNavbar = navbar([
           { text: 'JS 手写', link: '手写/防抖节流' }
         ]
       },
+      {
+        text: '优化',
+        children: [
+          { text: '网络优化', link: '优化/网络优化' },
+          { text: '代码优化', link: '优化/代码优化' },
+          { text: '框架优化', link: '优化/框架优化' }
+        ]
+      },
     ]
   },
   {

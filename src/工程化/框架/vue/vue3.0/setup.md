@@ -57,7 +57,9 @@ setup 基本使用
 
 ### 4. defineProps
 
-`	defineProps` ：用来接收父组件传来的 `props`
+`	defineProps` ：用来接收父组件传来的 `props`，
+
+有两种使用方法：运行时声明和类型声明
 
 ```vue
 <script setup>
@@ -83,6 +85,58 @@ setup 基本使用
     defineProps<Props>();
 </script>	
 ```
+
+#### 4.1 运行时声明
+
+`defineProps` 运行时声明，仅支持运行时校验
+
+```vue
+<script lang='ts' setup>
+  const props = defineProps({
+    foo: String,
+    bar: {
+      type: Number,
+      required: true
+    }
+  })
+ </script>
+```
+
+#### 4.2 类型声明
+
+`defineProps` 类型声明，基于 `ts` 的类型检查，对 `props` 进行类型约束，因此需要 `<script setup lang='ts'>` 写法
+
+```vue
+<script setup lang='ts'>
+  interface List{
+    id: number
+    content: string
+  }
+  const props = defineProps<{
+    foo?: string
+    list: List // 接口
+    // list: {id: number, content: string}  也可以写成行内的
+  }>()
+</script>
+```
+
+#### 4.3 默认值
+
+`withDefaults` 提供默认值
+
+```vue
+<script setup lang='ts'>
+	const props = withDefaults(defineProps<{
+    title?: string,
+    list?: List.Basic[]
+  }>(),{
+    title: 'tom',
+    list: () => [{id: 1, content: '1', isDone: false}]
+  })
+</script>
+```
+
+
 
 ### 	5. defineEmits
 

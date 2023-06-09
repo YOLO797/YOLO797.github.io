@@ -284,7 +284,7 @@ class myPeomise{
     // 对 pending 状态的处理（异步时会进来）
     if(this.status === PENDING){
       // 订阅过程、
-      // 采用箭头函数 push 进去，方便后边发布时，只需要遍历数组并直接执行每个元素就可以
+      // 采用箭头函数 push 进去，方便后面发布时，只需要遍历数组并直接执行每个元素就可以
       this.onFulfilledCallbaks.push(() => {
         onFulfilled(this.value)
       })
@@ -305,7 +305,7 @@ module.exports = myPromise
 - 通过 `return` 可以直接将结果给到下一个 `then`
 
   ```javascript
-  let promise = new Promise((resolve,reject) => {
+  let promise = new Promise((resolve, reject) => {
     resolve('First resolve')
   })
   promise.then(value => {
@@ -319,7 +319,7 @@ module.exports = myPromise
 - 通过新的 `peomise` 去 `resolve` 结果
 
   ```javascript
-  let promise = new Promise((resolve,reject) => {
+  let promise = new Promise((resolve, reject) => {
     resolve('First resolve')
   })
   promise.then(value => {
@@ -338,7 +338,7 @@ module.exports = myPromise
 - 在 `then` 中只要 `new` 了一个新的 `promise` ，哪怕有异步代码，也可以 `resolve` 结果给下一个 `then` 的 `onFulfilled` 回调
 
   ```javascript
-  let promise = new Promise((resolve,reject) => {
+  let promise = new Promise((resolve, reject) => {
     resolve('First resolve')
   })
   promise.then(value => {
@@ -359,7 +359,7 @@ module.exports = myPromise
 - 通过新的 `promise` 去 `reject` 时，可以 `reject` 结果给下一个 `then` 的 `onRejected` 回调
 
   ```javascript
-  let promise = new Promise((resolve,reject) => {
+  let promise = new Promise((resolve, reject) => {
     resolve('First resolve')
   })
   promise.then(value => {
@@ -374,17 +374,18 @@ module.exports = myPromise
   })
   .then(value => {
     console.log(value)
-  },reason => {
+  }, reason => {
     console.log('Reject:'+reason)   // 两秒后打印 “Reject:Error”
   })
   ```
 
 - `then`  走失败回调后，在走 `then`
-  - 默认会 `return undefined` ；给下一个 `then` d  `onFulfilled` 回调
+  
+  - 默认会 `return undefined` ；给下一个 `then` 的 `onFulfilled` 回调
   - 即：即使走了 `onRejected` 回调，如果继续 `then` ，这条链会把失败的 **返回结果** 直接传给到下一个 `then` 的 `onFulfilled` 回调中去
   
   ```javascript
-  let promise = new Promise((resolve,reject) => {
+  let promise = new Promise((resolve, reject) => {
     resolve('First resolve')
   })
   promise.then(value => {
@@ -397,12 +398,12 @@ module.exports = myPromise
   })
   .then(value => {
     console.log(value)
-  },reason => {
+  }, reason => {
     console.log('Reject:'+reason)   // Reject:Error
   })
   .then(value => {
     console.log('失败后，下一个then的onfulfilled：'+ value) //失败后，下一个then的onfulfilled：undefined
-  },reason => {
+  }, reason => {
     console.log('失败后，下一个then的onRejected：'+ reason)
   })
   ```
@@ -412,7 +413,7 @@ module.exports = myPromise
 - 在 `then` 中抛出错误异常时，如果下面还有 `then` ，一定会走到失败的 `onRejected` 回调函数中去
 
   ```javascript
-  let promise = new Promise((resolve,reject) => {
+  let promise = new Promise((resolve, reject) => {
     resolve('First resolve')
   })
   promise.then(value => {
@@ -423,7 +424,7 @@ module.exports = myPromise
   })
   .then(value => {
     console.log('抛出异常后，下一个then的onfulfilled：'+ value) 
-  },reason => {
+  }, reason => {
     console.log('抛出异常后，下一个then的onRejected：'+ reason) //抛出异常后，下一个then的onRejected：throw error
   })
   ```
@@ -470,7 +471,7 @@ class myPromise{
             let x = onFulfilled(this.value)
             // x值的处理
             resolvePromise(promise2, x, resolve, reject)
-          }catech(e){
+          }catch(e){
             reject(e)
           }
         },0)
@@ -479,10 +480,10 @@ class myPromise{
         setTimeout(()=>{
           try{
             // 新的Promise对象的回调函数返回值为x
-            let x = onFulfilled(this.reason)
+            let x = onRejected(this.reason)
             // x值的处理
             resolvePromise(promise2, x, resolve, reject)
-          }catech(e){
+          }catch(e){
             reject(e)
           }
         },0)
@@ -493,8 +494,8 @@ class myPromise{
             // 新的Promise对象的回调函数返回值为x
             let x = onFulfilled(this.value)
             // x值的处理
-          	resolvePromise(promise2, x, resolve, reject)
-          }catech(e){
+            resolvePromise(promise2, x, resolve, reject)
+          }catch(e){
             reject(e)
           }
         })
@@ -503,8 +504,8 @@ class myPromise{
             // 新的Promise对象的回调函数返回值为x
             let x = onRejected(this.reason)
             // x值的处理
-          	resolvePromise(promise2, x, resolve, reject)
-          }catech(e){
+            resolvePromise(promise2, x, resolve, reject)
+          }catch(e){
             reject(e)
           }
         })
@@ -590,7 +591,7 @@ class myPromise{
       })
     }
     
-    否则返回的 promise 将以此值完成，即以此值执行 resolve()
+    // 否则返回的 promise 将以此值完成，即以此值执行 resolve()
     return new myPromise(resolve => resolve(value))
   }
 }
