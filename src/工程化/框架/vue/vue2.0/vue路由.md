@@ -184,7 +184,7 @@ const router = new VueRouter({
 2. 浏览器的历史记录有两种写入方式：`push` 和 `replace`
    - `push` ：追加历史记录
    - `replace` ：替换当前记录
-3. 开启 `replace` 模式：`<router-lunk replace...>跳转</router-link>`
+3. 开启 `replace` 模式：`<router-link replace...>跳转</router-link>`
 
 ### 6. 编程式路由导航
 
@@ -345,7 +345,7 @@ beforeRouterLeave(to, from, next){
 2. 在失活的组件里调用 `beforeRouterLeave` 离开守卫
 3. 调用全局守卫 `beforeEach`守卫
 4. 在重用的组件内调用 `beforeRouteUpdate`守卫
-5. 在路由配置里嗲用 `beforeEnter`守卫
+5. 在路由配置里调用 `beforeEnter`守卫
 6. 解析异步路由组件
 7. 在被激活的组件内调用 `beforeRouteEnter`守卫
 8. 调用全局的 `beforeResolve` 守卫

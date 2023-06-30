@@ -18,7 +18,7 @@ VUE2.0 \ VUE3.0
 
 ## 1. SPA单页面
 
-单页面，仅在页面初始化时加载响应的 `HTML` 、`JS`、`CSS`。一旦页面加载完成后，`SPA` 不会因为用户的操作而重新加载或者跳转页面，而是利用路由机制实现 `HTML` 内容的变换，`UI` 交互，避免页面重新加载。
+单页面，仅在页面初始化时加载相应的 `HTML` 、`JS`、`CSS`。一旦页面加载完成后，`SPA` 不会因为用户的操作而重新加载或者跳转页面，而是利用路由机制实现 `HTML` 内容的变换，`UI` 交互，避免页面重新加载。
 
 ::: info 参考答案
 
@@ -248,7 +248,50 @@ vm.$set(items, index, newValue)
 
 :::
 
+
+
+## 14. vue初始化做了些什么
+
+::: info 参考答案
+
+1. 初始化组件配置项
+
+   初始化根组件时进行了选项合并操作，将全局合并到根组件的局部配置中
+
+2. 初始化组件实例的关系属性，如：$parent、$children、$root、$refs等
+
+3. 处理自定义事件
+
+4. 调用 `beforeCreate`钩子函数
+
+5. 数据响应式，处理 props、methods、data、computed、watch等选项
+
+6. 调用 `created`  钩子函数
+
+7. 判断是否有 `el`，有自动调用 `$mount`，没有就必须调用 `$mount`
+
+8. 挂载
+
+:::
+
+## 15 MVVM
+
+::: info 参考答案
+
+M：model,模型，对应的是 data 的数据
+
+V：view，视图，用户界面，DOM
+
+VM：view-model，视图模型，链接model和view之间的桥梁
+
+提供的是 view和viewmodel的双向绑定，当数据发生改变的时候，viewmodel能监听到数据的变化，自动更新视图。当用户操作视图的时候，viewmodel也可以监听视图的变化，然后通知数据进行改动，实现双向绑定。
+
+我们只需要关注业务逻辑即可，不需要手动操作DOM，同时也不需要关注数据状态问题，由MVVM统一管理。
+
+:::
+
 ## diff算法
 
 ## 性能优化
 
+[性能优化](https://www.51cto.com/article/652100.html?u_atoken=9941a446-3667-4396-aab8-59271510961c&u_asession=01xXsLEoewaxWnBOwtNZX6Hjv_nYblRjCVKi1QZxR42iDyyxOwbzMjQKNsQ5UgWnw2X0KNBwm7Lovlpxjd_P_q4JsKWYrT3W_NKPr8w6oU7K8cleyOw11lkpF98FaXIvqdrqbvh_g0SwoZUQIy9IQKTGBkFo3NEHBv0PZUm6pbxQU&u_asig=05cR52hcjdMgru4HQOxSwv1_PlNX4gP6RqX6HSQwq5usTBxNFivG8lgZ1ZfMbqR66dxqV_-LyzPtcKLGez4cPH7dcj0dEAfpg6gwGXWR-RwkAwKQFq0oFieKAKJi-HG75ezB1pGfY1zsU3wn9oatvNUTt2t520hX5KGDeuoQvfqPD9JS7q8ZD7Xtz2Ly-b0kmuyAKRFSVJkkdwVUnyHAIJzePOfv1_mZuShglJwtzr7azoIn-irCJ9tirn9Zn8VFifTWmG7GZanmEtNvKB0YxlD-3h9VXwMyh6PgyDIVSG1W98-xeb7OoSIIQfLZAZGCvd3Lxxiw1Iyz2TSblidq6Hs6SmYVgZHy2AOtiAv9340CPCEU6s0_Ol7LDePnrBxBYHmWspDxyAEEo4kbsryBKb9Q&u_aref=GDJlsHLd%2F9Dh6u8YNtrE7E00k4Q%3D)

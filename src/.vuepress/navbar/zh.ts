@@ -44,6 +44,10 @@ export const zhNavbar = navbar([
     prefix: "/面试题/",
     children: [
       {
+        text: 'CSS',
+        link: 'css'
+      },
+      {
         text: 'JS',
         link: 'js'
       },

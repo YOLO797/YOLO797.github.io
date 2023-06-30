@@ -17,6 +17,7 @@ star: true
 ### 1. websocket封装
 
 ```js
+// websocket.ts
 class WebSockets {
 	wssURL: string;
   connect: WebSockets;
@@ -48,6 +49,26 @@ class WebSockets {
 }
 export default WebSockets;
 ```
+
+```vue
+// index.vue
+<script lang="ts">
+  import WebScoket from './websocket'
+  export default {
+    mounted(){
+      this.$store.commit("SET_INDEX_WSS",new WebSocket('wss://xxx/api/xxx',this.handleMessage))
+    },
+    methods:{
+      handleMessage(e){
+        const data = JSON.parse(e.data)
+        this.$store.commit("SET_INDEX_SESSIONS",data.result)
+      }
+		}
+  }
+</script>
+```
+
+
 
 ### 2. 简单示例
 
